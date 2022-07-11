@@ -1,5 +1,88 @@
+/* RESETS */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+/* GLOBAL CLASSES */
+
+.center {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* CUSTOM STYLING */
+body {
+    background-color: black;
+}
+
+header {
+    font-size: 40px;
+    text-align: center;
+}
+
+.current-score, .high-score {
+    display: flex;
+    justify-content: flex-end;
+    padding: .7%;
+}
+
+
+.movie-container {
+    width: fit-content;
+    display: flex;
+    padding: 20px 2%;
+    margin: auto;
+    border: 2px solid rgb(255, 49, 204);
+    border-radius: 20px;
+    display: flex;
+}
+
+.movie-poster img{
+    max-height: 300px;
+}
+
+.review-container {
+    padding: 15px 2%;
+    width: 60%;
+    margin: 2% auto;
+    border: 2px solid yellowgreen;
+    background-color: rgba(255, 49, 203, 0.249);;
+    border-radius: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 2%;
+    width: fit-content;
+    justify-content: space-between;
+    border: 2px solid yellowgreen;
+    border-radius: 20px;
+}
+
+.button-container input {
+    font-size: 18px;
+    margin: 0 5px;
+    padding: 5px 10px;
+    transition: .222s;
+    color: white;
+}
+
+input.button{
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: rgba(255, 49, 203, 0.605);
 }
