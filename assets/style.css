@@ -21,6 +21,10 @@ img {
     margin: auto;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 /* CUSTOM STYLING */
 body {
     background-color: black;
@@ -86,3 +90,4 @@ input.button{
 .button:hover {
     background-color: rgba(255, 49, 203, 0.605);
 }
+
