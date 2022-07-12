@@ -1,4 +1,3 @@
-
 var chosenMovie;
 var chosenRating;
 var score = 0;
