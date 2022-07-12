@@ -4,7 +4,7 @@ var score = 0;
 
 
 function newMovie(){
-fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
+fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_lfgodn81")
         .then(function (res) {
           return res.json();
         })
@@ -16,7 +16,7 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
               return newMovie() 
             }
             console.log(chosenMovie);
-            fetch(`https://imdb-api.com/en/API/Posters/k_gg2341wi/${chosenMovie}`)
+            fetch(`https://imdb-api.com/en/API/Posters/k_lfgodn81/${chosenMovie}`)
             .then(function (res) {
                 return res.json();
               })
@@ -28,7 +28,7 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
                 }
                 $('.movie-display').attr('src', chosenPoster.link);
                   console.log(chosenPoster);
-              fetch(`https://imdb-api.com/en/API/MetacriticReviews/k_gg2341wi/${chosenMovie}`)
+              fetch(`https://imdb-api.com/en/API/MetacriticReviews/k_lfgodn81/${chosenMovie}`)
               .then(function (res) {
                   return res.json();
                 })
@@ -39,7 +39,7 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
                 }
                   $('.review-container').text(chosenReview);
                     console.log(chosenReview);
-                    fetch(`https://imdb-api.com/en/API/Ratings/k_gg2341wi/${chosenMovie}`)
+                    fetch(`https://imdb-api.com/en/API/Ratings/k_lfgodn81/${chosenMovie}`)
               .then(function (res) {
                   return res.json();
                 })
