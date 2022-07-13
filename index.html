@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Movie rating Game</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Comfortaa:wght@300&family=Inspiration&family=Play&family=Source+Code+Pro:wght@200;300;400&family=Trispace:wght@100&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat&family=Comfortaa:wght@300&family=Inspiration&family=Play&family=Source+Code+Pro:wght@200;300;400&family=Trispace:wght@100&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/normalize.css">
     <link rel="stylesheet" href="assets/skeleton.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,50 +19,57 @@
 
 </head>
 <header class="center"> Movie rating game</header>
+
 <body>
     <div class="current-score">
         <span>score:</span><span id="score"></span>
     </div>
-    
 
-    <div class="high-score"> 
+
+    <div class="high-score">
         <span>high score:</span> <span id="high-score"></span>
     </div>
 
     <div class="movie-container center">
-
-        <div class="movie-poster">
-            <img class="movie-display" src = "#">
+        <div class="dflex row">
+            <div class="movie-poster">
+                <img class="movie-display" src="#">
+            </div>
+            <div class="review-wrapper d-flex row">
+                <div class="review-container">
+                REVIEW
+                </div>
+                <img class="hidden" id="giphy-img" src="" alt="reaction giphy">
+            </div>
         </div>
-    </div>
-    <div class="center">
-        <button class="hidden" id="restart"> Restart the Game</button> 
-    </div>    
-    <div class="review-wrapper d-flex center">
-        <div class="review-container">REVIEW</div>
-        <img class="hidden" id="giphy-img" src="" alt="reaction giphy">
+
     </div>
  
+    <div class="center">
+        <button class="hidden" id="restart"> Restart the Game</button>
+    </div>
+
+
 
     <div class="button-container center">
-       <p id="answer-prompt">Rotten Tomatoes Freshness:</p>
+        <p id="answer-prompt">Rotten Tomatoes Freshness:</p>
 
         <div class="button-wrapper">
-            <input class="button" type="submit" value="0-20"   data-min="0" data-max="20" name="answer1" id="answer1">
-      
+            <input class="button" type="submit" value="0-20" data-min="0" data-max="20" name="answer1" id="answer1">
+
             <input class="button" type="submit" value="21-40" data-min="21" data-max="40" name="answer1" id="answer2">
-         
+
             <input class="button" type="submit" value="41-60" data-min="41" data-max="60" name="answer1" id="answer3">
-          
+
             <input class="button" type="submit" value="61-80" data-min="61" data-max="80" name="answer1" id="answer4">
-          
+
             <input class="button" type="submit" value="81-100" data-min="81" data-max="99" name="answer1" id="answer5">
         </div>
 
     </div>
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 <footer>Thanks for playing!</footer>
