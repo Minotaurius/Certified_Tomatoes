@@ -34,8 +34,10 @@ function newMovie(){
           return res.json();
         })
         .then(function (data) {
+          // this is getting a random movie from an array of the top 200
             var array = data.items;
             var rand = array[Math.floor(Math.random() * data.items.length)];
+            // rand.id, id is the imdb number iniside the object.. inside the array
             var chosenMovie = rand.id;
             if(!chosenMovie){
               return newMovie() 
@@ -83,6 +85,16 @@ function newMovie(){
 
         // this is the game over function... displays a gif and hides the movie poster 
 
+$("#restart").click(function(){
+  // score = 0;
+  // newMovie()
+  $('#restart').addClass('hidden')
+  // $('.review-wrapper').removeClass('hidden')
+  // $('.button-container').removeClass('hidden')
+  location.reload();
+
+})
+
 
 function gameOver() {
   fetch('https://api.giphy.com/v1/gifs/search?api_key=OktUBveN25fs3J2IzfZK7c9OW6IKvTJM&q=bill+paxton+game+over&limit=1&offset=0&rating=pg-13&lang=en')
@@ -95,6 +107,7 @@ function gameOver() {
         $('.movie-display').attr('src', gameOverGif);
         $('.review-wrapper').addClass('hidden')
         $('.button-container').addClass('hidden')
+        $('#restart').removeClass('hidden')
         console.log(gameOverGif);
 
         // setting hiscore 
@@ -103,7 +116,6 @@ function gameOver() {
           highScore = score 
           highScore = $("#high-score").text(score)
           localStorage.setItem('score', score);
-          
         }
     })
   };
