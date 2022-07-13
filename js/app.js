@@ -56,6 +56,10 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_exybb3ql")
         });
       }
 
+
+        // this is the game over function... displays a gif and hides the movie poster 
+
+
 function gameOver() {
   fetch('https://api.giphy.com/v1/gifs/search?api_key=OktUBveN25fs3J2IzfZK7c9OW6IKvTJM&q=bill+paxton+game+over&limit=1&offset=0&rating=pg-13&lang=en')
   .then(function (res) {
@@ -69,11 +73,21 @@ function gameOver() {
     })
   };
 
+
+    // this is the game functionality 
+
+
 $(".button").each(function(){
   $(this).click(function(event){
       if(movieRating >= event.target.dataset.min && movieRating <= event.target.dataset.max){
+
+        // this is scores plus plus 
+
         score++
           $('#score').text(score);
+
+
+
         fetch('https://api.giphy.com/v1/gifs/random?api_key=OktUBveN25fs3J2IzfZK7c9OW6IKvTJM&tag=good+job%2C+celebrate%2C+cheer&rating=pg-13')
         .then(function (res) {
             return res.json();
