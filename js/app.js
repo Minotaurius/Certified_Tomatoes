@@ -103,7 +103,7 @@ function gameOver() {
     })
     .then(function (data) {
       console.log(data);
-        var gameOverGif = data.data[0].images.fixed_height.url
+        var gameOverGif = data.data[0].images.original.url
         $('.movie-display').attr('src', gameOverGif);
         $('.review-wrapper').addClass('hidden')
         $('.button-container').addClass('hidden')
