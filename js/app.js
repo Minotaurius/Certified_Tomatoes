@@ -1,11 +1,19 @@
 var chosenMovie;
 var chosenRating;
 var score = 0;
+var highScore = 0;
 
+function getHiscore() {
+ var storedScore = localStorage.getItem('score');
+  $("#high-score").text(storedScore)
+}
+
+newMovie();
+getHiscore()
 
 function newMovie(){
-fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
-        .then(function (res) {
+  fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_7fvf648c")
+  .then(function (res) {
           return res.json();
         })
         .then(function (data) {
@@ -16,7 +24,7 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
               return newMovie() 
             }
             console.log(chosenMovie);
-            fetch(`https://imdb-api.com/en/API/Posters/k_gg2341wi/${chosenMovie}`)
+            fetch(`https://imdb-api.com/en/API/Posters/k_7fvf648c/${chosenMovie}`)
             .then(function (res) {
                 return res.json();
               })
@@ -28,18 +36,18 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
                 }
                 $('.movie-display').attr('src', chosenPoster.link);
                   console.log(chosenPoster);
-              fetch(`https://imdb-api.com/en/API/MetacriticReviews/k_gg2341wi/${chosenMovie}`)
+              fetch(`https://imdb-api.com/en/API/MetacriticReviews/k_7fvf648c/${chosenMovie}`)
               .then(function (res) {
                   return res.json();
                 })
                 .then(function (data) {
                   var chosenReview = data.items[0].content
-                  if(!chosenPoster){
+                  if(!chosenReview){
                   return newMovie() 
                 }
                   $('.review-container').text(chosenReview);
                     console.log(chosenReview);
-                    fetch(`https://imdb-api.com/en/API/Ratings/k_gg2341wi/${chosenMovie}`)
+                    fetch(`https://imdb-api.com/en/API/Ratings/k_7fvf648c/${chosenMovie}`)
               .then(function (res) {
                   return res.json();
                 })
@@ -54,22 +62,77 @@ fetch("https://imdb-api.com/en/API/BoxOfficeAllTime/k_gg2341wi")
           console.error(err);
         });
       }
-newMovie()
+
+
+        // this is the game over function... displays a gif and hides the movie poster 
+
+
+function gameOver() {
+  fetch('https://api.giphy.com/v1/gifs/search?api_key=OktUBveN25fs3J2IzfZK7c9OW6IKvTJM&q=bill+paxton+game+over&limit=1&offset=0&rating=pg-13&lang=en')
+  .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      console.log(data);
+        var gameOverGif = data.data[0].images.fixed_height.url
+        $('.movie-display').attr('src', gameOverGif);
+        console.log(gameOverGif);
+
+        // setting hiscore 
+
+        if(score > highScore) {
+          highScore = score 
+          highScore = $("#high-score").text(score)
+          localStorage.setItem('score', score);
+          
+        }
+    })
+  };
+
+
+    // this is the game functionality 
+
 
 $(".button").each(function(){
   $(this).click(function(event){
       if(movieRating >= event.target.dataset.min && movieRating <= event.target.dataset.max){
-        // score++;
-        // giphy stuff 2 
+
+        // this is scores plus plus 
+
+        score++
+          $('#score').text(score);
+
+// this is fetching a random gif for each successfull question answered 
+
+        fetch('https://api.giphy.com/v1/gifs/random?api_key=OktUBveN25fs3J2IzfZK7c9OW6IKvTJM&tag=good+job%2C+celebrate%2C+cheer&rating=pg-13')
+        .then(function (res) {
+            return res.json();
+          })
+          .then(function (data) {
+              var giphyUrl = data.data.images.fixed_height.url
+              console.log(giphyUrl);
+              $('#giphy-img').attr('src', giphyUrl);
+              $('#giphy-img').removeClass('hidden')
+              
+
+          }) .catch(function (err) {
+            console.error(err);
+          });
         // giphyfunction()
         
 
         newMovie()
       }
       // score local storage if (score > x save to highscore)
-      // else 
+      else {
+        gameOver()
+
+      }
       // game over giphy 
       // reset 
       console.log(this)
+    })
   })
-})
+  
+  // highScore = $("#high-score").text(score)
+  // localStorage.setItem('score', highScore);
