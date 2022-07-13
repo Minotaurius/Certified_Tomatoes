@@ -24,6 +24,7 @@ This game was developed by the following users. Please check out some of their o
 * Brandon Langer - https://github.com/Minotaurius
 
 ## Demo of game
+![Demo](./assets/images/project_demo.gif)
 
 ## Deployed link to game
 Click [HERE](https://minotaurius.github.io/Certified_Tomatoes/) to play our game! 
