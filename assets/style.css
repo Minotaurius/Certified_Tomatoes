@@ -21,8 +21,16 @@ img {
     margin: auto;
 }
 
+.d-flex {
+    display: flex;
+}
+.row {
+    flex-direction: row;
+}
+
 .hidden {
     visibility: hidden;
+    display: none;
 }
 
 /* CUSTOM STYLING */
@@ -45,8 +53,8 @@ header {
 .movie-container {
     width: fit-content;
     display: flex;
-    padding: 20px 2%;
-    margin: auto;
+    padding: 10px 2%;
+    margin: 5px auto 5px auto;
     border: 2px solid rgb(255, 49, 204);
     border-radius: 20px;
     display: flex;
@@ -59,7 +67,7 @@ header {
 .review-container {
     padding: 15px 2%;
     width: 60%;
-    margin: 2% auto;
+    margin: 0px auto;
     border: 2px solid yellowgreen;
     background-color: rgba(255, 49, 203, 0.249);;
     border-radius: 20px;
