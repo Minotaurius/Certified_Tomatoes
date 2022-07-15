@@ -1,3 +1,7 @@
+
+
+// THESE KEYS GO INTO THE keyArray var, THEY ARE LIMITED TO 33 USES EACH HENCE//
+
 // IMDB API KEY 1: k_at1xevme 
 // IMDB API KEY 2: k_exybb3ql 
 // IMDB API KEY 3: k_7fvf648c 
@@ -5,6 +9,10 @@
 // IMDB API KEY 5: k_lfgodn81 
 // IMDB API KEY 6: k_fz44i7xl 
 // IMDB API KEY 7: k_gg2341wi
+// IMDB API KEY 8: k_2z9kb2e6
+// IMDB API KEY 9: k_fopc3zkp
+
+
 
 var chosenMovie;
 var chosenRating;
@@ -12,7 +20,7 @@ var score = 0;
 var highScore = 0;
 
 
-var keyArray = [ 'k_at1xevme', 'k_exybb3ql','k_7fvf648c', 'k_99s487ie', 'k_lfgodn81', 'k_fz44i7xl', 'k_gg2341wi',]
+var keyArray = [ 'k_2z9kb2e6','k_fopc3zkp']
 
 var randKey;
 
@@ -95,7 +103,7 @@ $("#restart").click(function(){
 
 })
 
-
+// this is the game over function
 function gameOver() {
   fetch('https://api.giphy.com/v1/gifs/search?api_key=OktUBveN25fs3J2IzfZK7c9OW6IKvTJM&q=bill+paxton+game+over&limit=1&offset=0&rating=pg-13&lang=en')
   .then(function (res) {
